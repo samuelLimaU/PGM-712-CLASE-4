@@ -1,12 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Viewer360 } from './componets/viewer360/viewer360';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  standalone: true,
+  imports: [Viewer360],
+  template: `<app-viewer360></app-viewer360>`
 })
-export class App {
-  protected readonly title = signal('pgm4');
-}
+export class App {}
