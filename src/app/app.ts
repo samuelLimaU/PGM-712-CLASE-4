@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Viewer360 } from './componets/viewer360/viewer360';
+import { Viewer360 } from './components/viewer360/viewer360';
 
 @Component({
   selector: 'app-root',

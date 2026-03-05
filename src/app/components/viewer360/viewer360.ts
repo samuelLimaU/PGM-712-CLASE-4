@@ -8,10 +8,13 @@ import {
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GeometryComponent } from '../geometry/geometry';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-viewer360',
   standalone: true,
+  imports: [GeometryComponent, CommonModule],
   templateUrl: './viewer360.html',
   styleUrls: ['./viewer360.scss']
 })
@@ -20,7 +23,10 @@ export class Viewer360 implements AfterViewInit, OnDestroy {
   @ViewChild('container', { static: true })
   container!: ElementRef<HTMLDivElement>;
 
-  private scene!: THREE.Scene;
+  public scene!: THREE.Scene;
+  public red = 0xff0000;
+  public green = 0x00ff00;
+  public blue = 0x0000ff;
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
   private controls!: OrbitControls;
@@ -34,6 +40,10 @@ export class Viewer360 implements AfterViewInit, OnDestroy {
   private initScene(): void {
 
     this.scene = new THREE.Scene();
+    
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    this.scene.add(ambientLight);
 
     this.camera = new THREE.PerspectiveCamera(
       75,
