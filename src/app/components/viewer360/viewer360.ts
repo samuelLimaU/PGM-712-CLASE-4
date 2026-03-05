@@ -23,7 +23,7 @@ export class Viewer360 implements AfterViewInit, OnDestroy {
   @ViewChild('container', { static: true })
   container!: ElementRef<HTMLDivElement>;
 
-  public scene!: THREE.Scene;
+  public scene: THREE.Scene = new THREE.Scene();
   public red = 0xff0000;
   public green = 0x00ff00;
   public blue = 0x0000ff;
@@ -38,8 +38,6 @@ export class Viewer360 implements AfterViewInit, OnDestroy {
   }
 
   private initScene(): void {
-
-    this.scene = new THREE.Scene();
     
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 1);
